@@ -1,3 +1,4 @@
+import Link from "next/link";
 import prisma from "../../lib/prisma";
 
 async function getDMScreens() {
@@ -11,7 +12,9 @@ export default async function DMScreensPage() {
     <div>
       <h1>Screens</h1>
       {layouts.map((layout) => (
-        <p key={layout.id}>{layout.type}</p>
+        <Link href={`/dm-screens/${layout.id}`} key={layout.id}>
+          {layout.id}
+        </Link>
       ))}
     </div>
   );
