@@ -2,33 +2,25 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First to get started
+
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To get planetscale working locally (see docs [here](https://planetscale.com/docs/tutorials/prisma-quickstart)):
+- Create a planetscale account and starter database
+- Create a development branch
+- install the [planetscale cli](https://github.com/planetscale/cli#installation)
+- run `pscale auth login` to login to planetscale
+- run `pscale connect dm-screen <dev_branch_name> --port 3309` to connect to the database locally
+- Create a .env file and define the following `DATABASE_URL = 'mysql://root@127.0.0.1:3309/<DATABASE_NAME>'`
+- push the prisma schema up using `npx prisma db push`
+- You should now be connected to your database, and can rerun the `pscale connect dm-screen <dev_branch_name> --port 3309` command anytime you need to reconnect
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+You can also run `npx prisma studio` to view prisma studio in your browser which will allow you to add records
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
